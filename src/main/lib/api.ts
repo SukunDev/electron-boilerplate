@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosResponse } from 'axios'
 import { getRestApiUrl } from './config'
-import { ipcRenderer } from 'electron'
 import ElectronStore from 'electron-store'
 
 const Store = (ElectronStore as any).default || ElectronStore

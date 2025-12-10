@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 
 import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { QueryProvider } from '@renderer/contexts/QueryProvider'
-import { AuthProvider } from '@renderer/contexts/AuthProvider'
 import { ToastContainer } from 'react-toastify'
 
 export const Route = createRootRoute({
@@ -12,15 +11,13 @@ export const Route = createRootRoute({
 function RootComponent(): React.JSX.Element {
   useEffect(() => {
     // manual set dark mode
-    document.documentElement.classList.add('dark')
+    // document.documentElement.classList.add('dark')
   }, [])
 
   return (
     <>
       <QueryProvider>
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
+        <Outlet />
       </QueryProvider>
       <ToastContainer
         position="top-right"

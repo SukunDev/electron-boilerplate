@@ -1,8 +1,7 @@
 import { useGetTodos } from '@renderer/api/getTodos'
 import { Button } from '@renderer/components/ui/button'
 import { Item, ItemActions, ItemContent, ItemMedia, ItemTitle } from '@renderer/components/ui/item'
-import { useAuth } from '@renderer/contexts/AuthProvider'
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { CheckCircle, ExternalLink } from 'lucide-react'
 import React from 'react'
 
@@ -12,10 +11,10 @@ export const Route = createFileRoute('/_main/')({
 
 function RouteComponent(): React.JSX.Element {
   const { data: todos, isLoading: fetchTodosLoading } = useGetTodos()
-  const { logout } = useAuth()
+  const navigate = useNavigate()
 
   const handleLogout = async (): Promise<void> => {
-    logout()
+    navigate({to: '/signin'})
   }
 
   return (
@@ -26,7 +25,7 @@ function RouteComponent(): React.JSX.Element {
           <p>Loading...</p>
         ) : todos && todos.length > 0 ? (
           todos.map((todo) => (
-            <Item key={todo.id} variant="outline">
+            <Item key={todo.id} variant="outline" className='bg-white'>
               <ItemMedia>
                 <CheckCircle className="size-4 text-green-500" />
               </ItemMedia>
@@ -42,7 +41,7 @@ function RouteComponent(): React.JSX.Element {
                 >
                   Complete
                 </Button>
-                <Button variant="outline" asChild>
+                <Button variant="noShadow" asChild>
                   <Link to={`/`}>
                     View Details <ExternalLink />
                   </Link>

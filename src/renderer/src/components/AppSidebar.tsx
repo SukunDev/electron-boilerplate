@@ -35,18 +35,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>): 
   const location = useLocation()
 
   return (
-    <Sidebar collapsible="icon" className="w-64 border-r border-neutral-800" {...props}>
-      <SidebarHeader className="bg-neutral-900 border-b border-neutral-800">
+    <Sidebar collapsible="icon" className="w-64" {...props}>
+      <SidebarHeader className="bg-main border-b-3 border-r">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild className="hover:bg-neutral-800">
+            <SidebarMenuButton size="lg" asChild className="-my-[1.5px]">
               <Link to="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-purple-600 text-white">
                   <Gamepad2 className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold text-white">Boilerplate</span>
-                  <span className="truncate text-xs text-neutral-400">Dashboard</span>
+                  <span className="truncate font-semibold">Boilerplate</span>
+                  <span className="truncate text-xs">Dashboard</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -54,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>): 
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent className="bg-neutral-900">
+      <SidebarContent className="bg-white border-r">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -64,9 +64,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>): 
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       asChild
-                      className={`text-neutral-300 hover:bg-neutral-800 hover:text-white ${
+                      className={` ${
                         isActive
-                          ? 'bg-purple-900/50 text-purple-300 border-r-2 border-purple-500'
+                          ? ''
                           : ''
                       }`}
                     >
@@ -83,10 +83,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>): 
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="bg-neutral-900 border-t border-neutral-800">
+      <SidebarFooter className="border-r border-t-3">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="sm" className="text-neutral-400 hover:bg-neutral-800">
+            <SidebarMenuButton size="sm" className="">
               <div className="flex items-center space-x-2">
                 <div className="size-2 rounded-full bg-green-500" />
                 {open && <span className="text-xs">System Online</span>}
