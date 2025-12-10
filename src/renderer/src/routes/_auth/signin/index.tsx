@@ -44,7 +44,7 @@ function RouteComponent(): React.JSX.Element {
           <CardHeader className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Gamepad2 className="h-8 w-8" />
-              <span className="text-2xl font-bold">Billiard POS System</span>
+              <span className="text-2xl font-bold">Boilerplate</span>
             </div>
             <CardTitle className="text-2xl">Welcome Back</CardTitle>
             <CardDescription className="">
